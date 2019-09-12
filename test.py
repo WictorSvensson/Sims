@@ -9,7 +9,7 @@ ACCESS_TOKEN = '3Ahj265FzP0o6Jn50Ohw'
 
 # Data capture and upload interval in seconds. Less interval will eventually hang the DHT22.
 INTERVAL=2
-
+#hej
 sensor_data = {'Temperature': 0, 'pH': 0}
 
 next_reading = time.time()
