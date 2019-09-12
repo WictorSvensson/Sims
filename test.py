@@ -3,6 +3,7 @@ import time
 import sys
 import paho.mqtt.client as mqtt
 import json
+import random
 
 THINGSBOARD_HOST = '127.0.0.1'
 ACCESS_TOKEN = '3Ahj265FzP0o6Jn50Ohw'
@@ -10,7 +11,7 @@ ACCESS_TOKEN = '3Ahj265FzP0o6Jn50Ohw'
 # Data capture and upload interval in seconds. Less interval will eventually hang the DHT22.
 INTERVAL=2
 #hej
-sensor_data = {'Temperature': 0, 'pH': 0}
+sensor_data = {'temperature': 0, 'pH': 0}
 
 next_reading = time.time()
 
@@ -26,11 +27,11 @@ client.loop_start()
 
 try:
     while True:
-        pH = 5
-        temperature = 6
+        pH = random.randint(0,100)
+        temperature = random.randint(-10, 40)
         pH = round(pH, 2)
         temperature = round(temperature, 2)
-        print(u"Temperature: {:g}\u00b0C, pH: {:g}%".format(temperature, pH))
+        print(u"temperature: {:g}\u00b0C, pH: {:g}".format(temperature, pH))
         sensor_data['temperature'] = temperature
         sensor_data['pH'] = pH
 
